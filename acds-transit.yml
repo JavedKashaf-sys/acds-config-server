@@ -1,11 +1,8 @@
-server:
-  port: 9091
-
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://acdsenexsdb:3306/acdsenexsdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3308/acdstransitsdb}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -16,35 +13,26 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        envers:
-          audit_table_suffix: "_AUD"
-          revision_field_name: "REV"
-          revision_type_field_name: "REVTYPE"
-          store_data_at_delete: true
-          global_with_modified_flag: true
 
-  data:
-    redis:
-      host: ${SPRING_DATA_REDIS_HOST:redis}
-      port: ${SPRING_DATA_REDIS_PORT:6379}
-      connect-timeout: 5s
-      timeout: 3s
-
-  cache:
-    type: redis
-    redis:
-      time-to-live: 86400000
-      cache-null-values: false
+server:
+  port: 9092
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,prometheus
+        include: "health,info,metrics,prometheus"
 
   endpoint:
     health:
-      show-details: always
+      show-details: when_authorized
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+
+  swagger-ui:
+    path: /swagger-ui.html
 
 eureka:
   instance:
@@ -54,4 +42,4 @@ eureka:
     fetchRegistry: true
     registerWithEureka: true
     serviceUrl:
-      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://acds-eureka-server:8070/eureka/}
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8070/eureka/}
