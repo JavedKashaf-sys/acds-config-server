@@ -20,8 +20,11 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [%X{traceId:-}] [%X{spanId:-}] %logger{36} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [%X{traceId:-}] [%X{spanId:-}] %logger{36} - %msg%n"
-  
+
 spring:
+  application:
+    name: acds-enex
+
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/acdsenexsdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
     username: ${SPRING_DATASOURCE_USERNAME}
