@@ -1,24 +1,30 @@
 server:
   port: 8070
+eureka:
+  instance:
+    hostname: acds-eureka-server
+    prefer-ip-address: true
+
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://acds-eureka-server:8070/eureka/
+
 logging:
   file:
-    name: ${ACDS_LOG_PATH:C:/Users/MOF/Documents/ACDS/acds-logs}/${spring.application.name}.log
+    name: ${ACDS_LOG_PATH:/app/logs}/${spring.application.name}.log
 
   level:
     root: INFO
-    org.hibernate.SQL: INFO
     org.springframework.web: INFO
     org.springframework.security: INFO
 
   logback:
     rollingpolicy:
-      file-name-pattern: ${ACDS_LOG_PATH:C:/Users/MOF/Documents/ACDS/acds-logs}/archive/${spring.application.name}-%d{yyyy-MM-dd}.log
+      file-name-pattern: ${ACDS_LOG_PATH:/app/logs}/archive/${spring.application.name}-%d{yyyy-MM-dd}.log
       max-history: 30
       total-size-cap: 2GB
-
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [%X{traceId:-}] [%X{spanId:-}] %logger{36} - %msg%n"
-    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [%X{traceId:-}] [%X{spanId:-}] %logger{36} - %msg%n"
   
 
 eureka:
