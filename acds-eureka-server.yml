@@ -1,5 +1,6 @@
 server:
   port: 8070
+
 eureka:
   instance:
     hostname: acds-eureka-server
@@ -25,13 +26,3 @@ logging:
       file-name-pattern: ${ACDS_LOG_PATH:/app/logs}/archive/${spring.application.name}-%d{yyyy-MM-dd}.log
       max-history: 30
       total-size-cap: 2GB
-  
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    fetchRegistry: false
-    registerWithEureka: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
