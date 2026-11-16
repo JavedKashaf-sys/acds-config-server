@@ -19,7 +19,7 @@ server:
 
 logging:
   file:
-    name: ${ACDS_LOG_PATH:C:/Users/MOF/Documents/ACDS/logs}/${spring.application.name}.log
+    name: ${ACDS_LOG_PATH:C:/Users/MOF/Documents/ACDS/acds-logs}/${spring.application.name}.log
 
   level:
     root: INFO
@@ -29,7 +29,7 @@ logging:
 
   logback:
     rollingpolicy:
-      file-name-pattern: ${ACDS_LOG_PATH:C:/Users/MOF/Documents/ACDS/logs}/archive/${spring.application.name}-%d{yyyy-MM-dd}.log
+      file-name-pattern: ${ACDS_LOG_PATH:C:/Users/MOF/Documents/ACDS/acds-logs}/archive/${spring.application.name}-%d{yyyy-MM-dd}.log
       max-history: 30
       total-size-cap: 2GB
 
