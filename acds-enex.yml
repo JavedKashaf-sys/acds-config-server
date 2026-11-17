@@ -1,9 +1,6 @@
 server:
   port: 9091
 
-server:
-  port: 9092
-
 logging:
   file:
     name: ${ACDS_LOG_PATH:C:/Users/MOF/Documents/ACDS/acds-logs}/${spring.application.name}.log
