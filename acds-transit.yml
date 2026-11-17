@@ -1,9 +1,15 @@
 spring:
+  application:
+    name: acds-enex
+    
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3308/acdstransitsdb}
     username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+    
 
   jpa:
     hibernate:
