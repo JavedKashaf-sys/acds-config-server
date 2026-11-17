@@ -1,3 +1,7 @@
+spring:
+  application:
+    name: acds-enex
+
 server:
   port: 8070
 
