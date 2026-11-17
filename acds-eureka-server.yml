@@ -1,6 +1,6 @@
 spring:
   application:
-    name: acds-enex
+    name: acds-eureka-server
 
 server:
   port: 8070
