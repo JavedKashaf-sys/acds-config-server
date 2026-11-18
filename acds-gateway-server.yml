@@ -2,9 +2,18 @@ spring:
   application:
     name: acds-gateway-server
 
-
 server:
   port: 8072
+
+eureka:
+  instance:
+    preferIpAddress: true
+
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: "http://localhost:8070/eureka/"
 
 logging:
   file:
@@ -28,13 +37,3 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [%X{traceId:-}] [%X{spanId:-}] %logger{36} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [%X{traceId:-}] [%X{spanId:-}] %logger{36} - %msg%n"
-  
-
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: "http://localhost:8070/eureka/"  
