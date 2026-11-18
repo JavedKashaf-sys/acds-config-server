@@ -38,6 +38,7 @@ logging:
       max-file-size: 10MB
       max-history: 30
       total-size-cap: 2GB
+      clean-history-on-start: false
 
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [%X{traceId:-}] [%X{spanId:-}] %logger{36} - %msg%n"
