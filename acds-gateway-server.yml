@@ -36,5 +36,5 @@ logging:
       clean-history-on-start: false
 
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [correlationId=%X{correlationId:-}] [traceId=%X{traceId:-}] [spanId=%X{spanId:-}] %logger{36} - %msg%n"
-    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [correlationId=%X{correlationId:-}] [traceId=%X{traceId:-}] [spanId=%X{spanId:-}] %logger{36} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [correlationId=%X{correlationId:-}] [traceId=%X{trace_id:-}] [spanId=%X{span_id:-}] [traceFlags=%X{trace_flags:-}] %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [correlationId=%X{correlationId:-}] [traceId=%X{trace_id:-}] [spanId=%X{span_id:-}] [traceFlags=%X{trace_flags:-}] %logger{36} - %msg%n"
