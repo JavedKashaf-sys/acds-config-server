@@ -65,6 +65,7 @@ management:
     health:
       probes:
         enabled: true
+      show-details: always  
   info:
     env:
       enabled: true
@@ -92,9 +93,6 @@ management:
     tags:
       application: ${spring.application.name}     
 
-  endpoint:
-    health:
-      show-details: always
 
 logging:
   file:
