@@ -34,18 +34,36 @@ management:
   endpoints:
     web:
       exposure:
-        include: "health,info,metrics,prometheus"
+        include: "*"
+  endpoint:
+    gateway:
+      access: unrestricted
+  info:
+    env:
+      enabled: true
+  opentelemetry:
+    resource-attributes:
+      service.name: ${spring.application.name}
+      deployment.environment: "development"
+    logging:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/logs
+    tracing:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/traces
   tracing:
     sampling:
       probability: 1.0
-
   otlp:
-    tracing:
-      endpoint: http://tempo:4318/v1/traces     
-
-  endpoint:
-    health:
-      show-details: when_authorized
+    metrics:
+      export:
+        url: http://localhost:4318/v1/metrics
+        step: 10s
+  metrics:
+    tags:
+      application: ${spring.application.name}
 
 springdoc:
   api-docs:
